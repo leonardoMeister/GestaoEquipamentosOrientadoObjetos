@@ -13,15 +13,23 @@ namespace GestaoEquipamentosOO
         private string nome;
         private int serie;
         private string fabricante;
-        private int id;
+        private int id_equipamento;
         private DateTime dataFabricacao;
 
-        public int Id
+        private static int id;
+
+        private static void GerarId()
+        {
+            id++;
+        }
+
+        public int Id_equipamento
         {
             get
             {
-                return id;
+                return id_equipamento;
             }
+
         }
         public DateTime DataFabricacao
         {
@@ -43,6 +51,8 @@ namespace GestaoEquipamentosOO
             this.Serie = serie;
             this.dataFabricacao = data;
             this.Fabricante = fabricante;
+            id_equipamento = id;
+            GerarId();
         }
 
     }

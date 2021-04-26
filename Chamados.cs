@@ -14,6 +14,21 @@ namespace GestaoEquipamentosOO
         private Equipamentos equipamento;
         private DateTime dataAbertura;
         private DateTime dataAtualizacao;
+        private int id_equipamento;
+        
+        private static int id;
+
+        private static void GerarId()
+        {
+            id++;
+        }
+        public int Id_equipamento
+        {
+            get
+            {
+                return id_equipamento;
+            }
+        }
 
         public string Titulo
         {
@@ -47,6 +62,8 @@ namespace GestaoEquipamentosOO
             this.dataAbertura = dataAbertura;
             this.equipamento = equipamento;
             this.dataAtualizacao = dataAbertura;
+            id_equipamento = id;
+            GerarId();
         }
     }
 }
