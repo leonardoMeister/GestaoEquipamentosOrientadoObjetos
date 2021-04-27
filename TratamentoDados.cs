@@ -8,5 +8,6 @@ namespace GestaoEquipamentosOO
 {
     class TratamentoDados
     {
+
     }
 }

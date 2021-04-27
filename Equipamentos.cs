@@ -18,6 +18,11 @@ namespace GestaoEquipamentosOO
 
         private static int id;
 
+        public override string ToString()
+        {
+            return $"Nome: {nome}\nSerie: {serie}\nFabricante: {fabricante}\nPreço: {preco}\nData Fabricação: {dataFabricacao}\nId Equipamento: {id_equipamento}\n";
+        }
+
         private static void GerarId()
         {
             id++;

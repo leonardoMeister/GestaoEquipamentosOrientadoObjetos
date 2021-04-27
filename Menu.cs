@@ -21,15 +21,42 @@ namespace GestaoEquipamentosOO
             Console.WriteLine("[7] Remover Chamado");
             Console.WriteLine("[8] Mostrar Chamados");
             Console.WriteLine("[9] Editar Chamado");
-            //int aux = opcaoMenu();
-            return  2;
+            int aux = opcaoMenu();
+            return  aux;
         }
 
-       /* private static int opcaoMenu()
+        private static int opcaoMenu()
         {
             try
-            return 1;
+            {
+                int aux = Convert.ToInt32(Console.ReadLine());
+
+                if (!EhOpcaoInvalida(aux))
+                {
+                    return aux;
+                }
+
+                Console.WriteLine("Valor Não Correspondente, tente novamente!");
+                Console.ReadLine();
+                Console.Clear();
+                MenuOpcoes();
+
+                
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Erro, Insira um Valor Valido!");
+                Console.ReadLine();
+                Console.Clear();
+                MenuOpcoes();
+            }
+
+            return 0;
         }
-       */
+
+        private static bool EhOpcaoInvalida(int aux)
+        {
+            return (aux <= 0 || aux > 9);
+        }
     }
 }

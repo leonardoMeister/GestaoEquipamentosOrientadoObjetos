@@ -14,7 +14,7 @@ namespace GestaoEquipamentosOO
         private Equipamentos equipamento;
         private DateTime dataAbertura;
         private DateTime dataAtualizacao;
-        private int id_equipamento;
+        private int id_chamado;
         
         private static int id;
 
@@ -22,11 +22,17 @@ namespace GestaoEquipamentosOO
         {
             id++;
         }
-        public int Id_equipamento
+
+        public override string ToString()
+        {
+            return $"Titulo Chamado: {titulo}\nDescrição do chamado: {descricao}\nData de Abertura: {dataAbertura}\nEquipamento do Chamado: {equipamento.Nome}\nDias Em Aberto: {DiasEmAberto()}";
+        }
+
+        public int Id_chamado
         {
             get
             {
-                return id_equipamento;
+                return id_chamado;
             }
         }
 
@@ -62,8 +68,13 @@ namespace GestaoEquipamentosOO
             this.dataAbertura = dataAbertura;
             this.equipamento = equipamento;
             this.dataAtualizacao = dataAbertura;
-            id_equipamento = id;
+            id_chamado = id;
             GerarId();
+        }
+        public int DiasEmAberto()
+        {
+            DateTime dataAtual = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+            return (int)dataAtual.Subtract(dataAbertura).TotalDays;        
         }
     }
 }

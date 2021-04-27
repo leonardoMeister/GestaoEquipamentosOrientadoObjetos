@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Chamados.cs" />
     <Compile Include="Equipamentos.cs" />
+    <Compile Include="GerenciadorLista.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
