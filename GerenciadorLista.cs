@@ -16,7 +16,6 @@ namespace GestaoEquipamentosOO
 
 
 
-
         public void RemoverChamado(String titulo, int idChamado)
         {
             for (int i = 0; i < auxChamados; i++)

@@ -8,7 +8,6 @@ namespace GestaoEquipamentosOO
 {
     class Chamados
     {
-
         private string titulo;
         private string descricao;
         private Equipamentos equipamento;
@@ -25,7 +24,7 @@ namespace GestaoEquipamentosOO
 
         public override string ToString()
         {
-            return $"Titulo Chamado: {titulo}\nDescrição do chamado: {descricao}\nData de Abertura: {dataAbertura}\nEquipamento do Chamado: {equipamento.Nome}\nDias Em Aberto: {DiasEmAberto()}";
+            return $"\nTitulo Chamado: {titulo}\nDescrição do chamado: {descricao}\nData de Abertura: {dataAbertura}\nEquipamento do Chamado: {equipamento.Nome}\nDias Em Aberto: {DiasEmAberto()}";
         }
 
         public int Id_chamado
@@ -57,6 +56,8 @@ namespace GestaoEquipamentosOO
                 return dataAbertura;
             }
         }
+
+        
 
         public string Descricao { get => descricao; set => descricao = value; }
         public DateTime DataAtualizacao { get => dataAtualizacao; set => dataAtualizacao = value; }

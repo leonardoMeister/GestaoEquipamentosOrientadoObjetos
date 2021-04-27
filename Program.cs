@@ -8,46 +8,91 @@ namespace GestaoEquipamentosOO
 {
     class Program
     {
+        TratamentoDados tratador = new TratamentoDados();
+        GerenciadorLista lista = new GerenciadorLista();
         public Program()
         {
-            TratamentoDados tratador = new TratamentoDados();
+
+            while (true)
+            {
+
+                {           
+             /* [1] Adicionar Equipamento
+                [2] Remover Equipamento
+                [3] Mostrar Equipamentos
+                [4] Visualizar um Equipamento
+                [5] Editar Equipamento
+                [6] Adicionar Chamado
+                [7] Remover Chamado
+                [8] Mostrar Chamados
+                [9] Editar Chamado
+                [10] Sair*/
+                }       //Descrição
+
+                string nome = "";
+                int id= 0;
+                Equipamentos aux;
+                switch (Menu.MenuOpcoes())
+                {
+                    case 1:
+                        lista.AdicionarEquipamento(tratador.PegarDadosEquipamento());
+                        break;
+                    case 2:
+                        
+                        tratador.PegarNomeIdEquipamento(out nome, out id);
+                        lista.RemoverEquipamento(nome,id);
+                        break;
+                    case 3:
+                        lista.MostrarEquipamentos();
+                        break;
+                    case 4:
+                        tratador.PegarNomeIdEquipamento(out nome, out id);
+                         aux = lista.SelecionarEquipamento(nome,id);
+                        Console.WriteLine(aux.ToString());
+                        break;
+                    case 5:
+
+                        tratador.PegarNomeIdEquipamento(out nome, out id);
+                        aux = lista.SelecionarEquipamento(nome, id);
+                        tratador.AlterarValorEquipamento(ref aux);
+                        
+
+
+                        break;
+                    case 6:
+                        tratador.PegarNomeIdEquipamento(out nome, out id);
+                        aux = lista.SelecionarEquipamento(nome, id);
+                        if (aux != null)
+                        {
+                            lista.AdicionarChamado(tratador.PegarDadosChamados(aux));
+                        }
+                        else Console.WriteLine("Equipamento Não encontrado!");
+                        
+                        break;
+                    case 7:
+                        tratador.PegarNomeIdChamado(out nome, out id);
+                        lista.RemoverChamado(nome,id);
+                        break;
+                    case 8:
+                        lista.MostrarChamados();
+                        break;
+                    case 9:
+                        
 
 
 
-            GerenciadorLista lista = new GerenciadorLista();
-            
-            Equipamentos novo1 = new Equipamentos(200,"leo", 300, Convert.ToDateTime("2002-03-20"), "lenovo");
-            Equipamentos novo2 = new Equipamentos(200, "veronica", 300, Convert.ToDateTime("2002-03-20"), "lenovo");
-            Equipamentos novo3 = new Equipamentos(200, "clemir", 300, Convert.ToDateTime("2002-03-20"), "lenovo");
-            Equipamentos novo4 = new Equipamentos(200, "joao", 300, Convert.ToDateTime("2002-03-20"), "lenovo");
-            lista.AdicionarEquipamento(novo1);
-            lista.AdicionarEquipamento(novo2);
-            lista.AdicionarEquipamento(novo3);
-            lista.AdicionarEquipamento(novo4);
-
-
-            Equipamentos aux = lista.SelecionarEquipamento("leo", 0);
-
-            lista.RemoverEquipamento("leo",0);
-            lista.SelecionarEquipamento("leo", 0);
-
-
-            Chamados chama = new Chamados("Tela Iphone", "Minha téla quebrou", Convert.ToDateTime( "20-03-2001"), novo1);
-
-            lista.MostrarEquipamentos();            
-
-            Console.Read();
-
-
-            
-
-            lista.MostrarEquipamentos();
+                        break;
+                    case 10:
+                        Console.WriteLine(9);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
-
         static void Main(string[] args)
         {
             new Program();
-            
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GestaoEquipamentosOO
     class Equipamentos
     {
 
-        private float preco;
+        private decimal preco;
         private string nome;
         private int serie;
         private string fabricante;
@@ -17,6 +17,8 @@ namespace GestaoEquipamentosOO
         private DateTime dataFabricacao;
 
         private static int id;
+        
+        
 
         public override string ToString()
         {
@@ -44,12 +46,12 @@ namespace GestaoEquipamentosOO
             }
         }
 
-        public float Preco { get => preco; set => preco = value; }
+        public decimal Preco { get => preco; set => preco = value; }
         public string Nome { get => nome; set => nome = value; }
         public int Serie { get => serie; set => serie = value; }
         public string Fabricante { get => fabricante; set => fabricante = value; }
 
-        public Equipamentos(float preco, string nome, int serie, DateTime data, string fabricante)
+        public Equipamentos(decimal preco, string nome, int serie, DateTime data, string fabricante)
         {
             this.Preco = preco;
             this.Nome = nome;
