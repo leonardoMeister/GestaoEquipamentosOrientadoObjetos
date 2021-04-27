@@ -14,57 +14,34 @@ namespace GestaoEquipamentosOO
         private DateTime dataAbertura;
         private DateTime dataAtualizacao;
         private int id_chamado;
-        
         private static int id;
-
         private static void GerarId()
         {
             id++;
         }
-
         public override string ToString()
         {
-            return $"\nTitulo Chamado: {titulo}\nDescrição do chamado: {descricao}\nData de Abertura: {dataAbertura}\nEquipamento do Chamado: {equipamento.Nome}\nDias Em Aberto: {DiasEmAberto()}";
+            return $"\nTitulo Chamado: {Titulo}\nDescrição do chamado: {descricao}\nData de Abertura: {dataAbertura}\nEquipamento do Chamado: {equipamento.Nome}\nDias Em Aberto: {DiasEmAberto()}\n";
         }
-
         public int Id_chamado
         {
             get
             {
                 return id_chamado;
             }
-        }
-
-        public string Titulo
-        {
-            get
-            {
-                return titulo;
-            }
-        }
-        public Equipamentos Equipamento
-        {
-            get
-            {
-                return equipamento;
-            }
-        }
+        }  
         public DateTime DataAbertura
         {
             get
             {
                 return dataAbertura;
             }
-        }
-
-        
-
+        }     
         public string Descricao { get => descricao; set => descricao = value; }
-        public DateTime DataAtualizacao { get => dataAtualizacao; set => dataAtualizacao = value; }
-
+        public string Titulo { get => titulo; set => titulo = value; }
         public Chamados(string titulo, string descricao, DateTime dataAbertura, Equipamentos equipamento)
         {
-            this.titulo = titulo;
+            this.Titulo = titulo;
             this.descricao = descricao;
             this.dataAbertura = dataAbertura;
             this.equipamento = equipamento;

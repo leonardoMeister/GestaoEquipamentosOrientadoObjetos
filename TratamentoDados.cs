@@ -8,37 +8,24 @@ namespace GestaoEquipamentosOO
 {
     class TratamentoDados
     {
-        /*         
-        float preco;
-        string nome;
-        int serie;
-        string fabricante;
-        DateTime dataFabricacao;  
-         */
-        /*
-         string titulo
-         string descricao
-         Equipamentos equipamento
-         DateTime dataAbertura
-         */
-
-
         public void AlterarValorChamada(ref Chamados chama)
         {
-
+            Console.WriteLine("Informe o novo Titulo do Chamado: ");
+            chama.Titulo = PegarValor();
+            Console.WriteLine("Informe a nova descrição do Chamado: ");
+            chama.Descricao = PegarValor();
+            return ;
         }
-
         public void AlterarValorEquipamento( ref Equipamentos equip)
         {
-            Console.WriteLine("Informe o Nome do Equipamento: ");
+            Console.WriteLine("Informe o novo Nome do Equipamento: ");
             equip.Nome = PegarValor();
-            Console.WriteLine("Informe o Preço Do Equipamento: ");
+            Console.WriteLine("Informe o novo Preço Do Equipamento: ");
             equip.Preco = Convert.ToDecimal(PegarValor());
-            Console.WriteLine("Insira o Nº série: ");
+            Console.WriteLine("Insira o novo Nº série: ");
             equip.Serie = PegarNumero();
             return;
         }
-
         public Chamados PegarDadosChamados( Equipamentos equipamento)
         {
             while (true)

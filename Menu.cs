@@ -10,7 +10,6 @@ namespace GestaoEquipamentosOO
     {
         public static int MenuOpcoes()
         {
-
             Console.WriteLine("Opções do Menu: ");
             Console.WriteLine("[1] Adicionar Equipamento");
             Console.WriteLine("[2] Remover Equipamento");
@@ -21,10 +20,10 @@ namespace GestaoEquipamentosOO
             Console.WriteLine("[7] Remover Chamado");
             Console.WriteLine("[8] Mostrar Chamados");
             Console.WriteLine("[9] Editar Chamado");
+            Console.WriteLine("[10] Fechar");
             int aux = opcaoMenu();
             return  aux;
         }
-
         private static int opcaoMenu()
         {
             try
@@ -35,13 +34,10 @@ namespace GestaoEquipamentosOO
                 {
                     return aux;
                 }
-
                 Console.WriteLine("Valor Não Correspondente, tente novamente!");
                 Console.ReadLine();
                 Console.Clear();
-                MenuOpcoes();
-
-                
+                MenuOpcoes();                
             }
             catch (Exception)
             {
@@ -53,10 +49,9 @@ namespace GestaoEquipamentosOO
 
             return 0;
         }
-
         private static bool EhOpcaoInvalida(int aux)
         {
-            return (aux <= 0 || aux > 9);
+            return (aux <= 0 || aux > 10);
         }
     }
 }

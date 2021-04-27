@@ -8,14 +8,10 @@ namespace GestaoEquipamentosOO
 {
     class GerenciadorLista
     {
-
         Equipamentos[] listaEquipamentoTotal = new Equipamentos[100];
         Chamados[] listaChamadosTotal = new Chamados[100];
         private int auxChamados = 1;
         private int auxEquipamentos = 1;
-
-
-
         public void RemoverChamado(String titulo, int idChamado)
         {
             for (int i = 0; i < auxChamados; i++)
@@ -37,7 +33,6 @@ namespace GestaoEquipamentosOO
                     }
                     catch (Exception)
                     {
-
                     }
                 }
             }
@@ -78,21 +73,10 @@ namespace GestaoEquipamentosOO
                 }
                 catch (Exception)
                 {
-
                 }
             }
             return null;
         }
-        public void EditarChamado(string titulo, int idChamado)
-        {
-
-        }
-        //--------------------------------------------------------------------------------------------------------------------
-        public void EditarEquipamento(string nome, int idEquipamento)
-        {
-
-        }
-
         public Equipamentos SelecionarEquipamento(string nome, int idEquipamento)
         {
             for (int i = 0; i < auxEquipamentos; i++)
@@ -107,7 +91,6 @@ namespace GestaoEquipamentosOO
                 }
                 catch (Exception)
                 {
-
                 }
             }
             return null;
@@ -155,13 +138,9 @@ namespace GestaoEquipamentosOO
                     }
                     catch (Exception)
                     {
-
                     }
                 }
             }
         }
-
-
-
     }
 }

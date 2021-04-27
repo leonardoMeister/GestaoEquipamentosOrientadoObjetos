@@ -12,33 +12,18 @@ namespace GestaoEquipamentosOO
         GerenciadorLista lista = new GerenciadorLista();
         public Program()
         {
-
             while (true)
             {
-
-                {           
-             /* [1] Adicionar Equipamento
-                [2] Remover Equipamento
-                [3] Mostrar Equipamentos
-                [4] Visualizar um Equipamento
-                [5] Editar Equipamento
-                [6] Adicionar Chamado
-                [7] Remover Chamado
-                [8] Mostrar Chamados
-                [9] Editar Chamado
-                [10] Sair*/
-                }       //Descrição
-
                 string nome = "";
                 int id= 0;
-                Equipamentos aux;
+                Equipamentos auxEquipamentos;
+                Chamados auxChamados;
                 switch (Menu.MenuOpcoes())
                 {
                     case 1:
                         lista.AdicionarEquipamento(tratador.PegarDadosEquipamento());
                         break;
-                    case 2:
-                        
+                    case 2:                      
                         tratador.PegarNomeIdEquipamento(out nome, out id);
                         lista.RemoverEquipamento(nome,id);
                         break;
@@ -47,24 +32,27 @@ namespace GestaoEquipamentosOO
                         break;
                     case 4:
                         tratador.PegarNomeIdEquipamento(out nome, out id);
-                         aux = lista.SelecionarEquipamento(nome,id);
-                        Console.WriteLine(aux.ToString());
+                         auxEquipamentos = lista.SelecionarEquipamento(nome,id);
+                        if (auxEquipamentos != null)
+                        {
+                            Console.WriteLine(auxEquipamentos.ToString());
+                        }
+                        else Console.WriteLine("Equipamento não localizado");
                         break;
                     case 5:
-
                         tratador.PegarNomeIdEquipamento(out nome, out id);
-                        aux = lista.SelecionarEquipamento(nome, id);
-                        tratador.AlterarValorEquipamento(ref aux);
-                        
-
-
+                        auxEquipamentos = lista.SelecionarEquipamento(nome, id);
+                        if (auxEquipamentos!= null)
+                        {
+                            tratador.AlterarValorEquipamento(ref auxEquipamentos);
+                        }
                         break;
                     case 6:
                         tratador.PegarNomeIdEquipamento(out nome, out id);
-                        aux = lista.SelecionarEquipamento(nome, id);
-                        if (aux != null)
+                        auxEquipamentos = lista.SelecionarEquipamento(nome, id);
+                        if (auxEquipamentos != null)
                         {
-                            lista.AdicionarChamado(tratador.PegarDadosChamados(aux));
+                            lista.AdicionarChamado(tratador.PegarDadosChamados(auxEquipamentos));
                         }
                         else Console.WriteLine("Equipamento Não encontrado!");
                         
@@ -77,13 +65,16 @@ namespace GestaoEquipamentosOO
                         lista.MostrarChamados();
                         break;
                     case 9:
-                        
-
-
-
+                        tratador.PegarNomeIdChamado(out nome, out id);
+                        auxChamados = lista.SelecionarChamado(nome,id);
+                        if (auxChamados != null)
+                        {
+                            tratador.AlterarValorChamada(ref auxChamados);
+                        }
+                        else Console.WriteLine("Chamado Não localizado!");
                         break;
                     case 10:
-                        Console.WriteLine(9);
+                        Environment.Exit(0);
                         break;
                     default:
                         break;
